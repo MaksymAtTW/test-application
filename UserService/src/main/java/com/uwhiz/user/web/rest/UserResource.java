@@ -20,7 +20,7 @@ public class UserResource {
     @Autowired
     UserBusinessService userBusinessService;
 
-    @RequestMapping(path = "/users", method = RequestMethod.GET/*, produces = MediaType.APPLICATION_JSON_VALUE*/)
+    @RequestMapping(path = "/users", method = RequestMethod.GET)
     public ResponseEntity<?> getAllUsers() {
         return ResponseEntity.ok(userBusinessService.retrieveAllUsers());
     }
