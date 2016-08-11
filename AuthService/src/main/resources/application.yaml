@@ -26,6 +26,9 @@ spring:
             password: ${UWHIZ_DB_PASS}
             driverClassName: com.mysql.jdbc.Driver
 
+logging:
+  level:
+    org.springframework.security: DEBUG
 
 
 

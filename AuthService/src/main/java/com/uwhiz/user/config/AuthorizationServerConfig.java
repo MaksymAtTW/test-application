@@ -56,7 +56,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .secret("user-secret")
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token", "client_credentials")
                 .scopes("read", "write")
-                .resourceIds("oauth-resource");
+//                .resourceIds("oauth-resource")
+        ;
     }
 
     @Bean

@@ -28,6 +28,21 @@ liquibase:
     contexts: default
 
 
+security:
+  oauth2:
+    client:
+      client-id: user-service
+      client-secret: user-secret
+      access-token-uri: http://localhost:8182/oauth/token
+      user-authorization-uri: http://localhost:8182/oauth/authorize
+    resource:
+      user-info-uri: http://localhost:8182/me
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+
 ---
 #spring:
 #  application:
