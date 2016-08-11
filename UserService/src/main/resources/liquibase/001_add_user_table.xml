@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="001" author="Maksym Bryzhko" runOnChange="false">
+        <sql>
+            CREATE TABLE `user` (
+            `id` BIGINT(12) NOT NULL,
+            `email` VARCHAR(100) NOT NULL,
+            `full_name` VARCHAR(100) NOT NULL,
+            `password_hash` VARCHAR(64) NOT NULL,
+            PRIMARY KEY (`id`),
+            UNIQUE INDEX `IX_email_UNIQUE` (`email` ASC));
+        </sql>
+
+        <loadData encoding="UTF-8"
+                  file="liquibase/users.csv"
+                  separator=";"
+                  tableName="user"/>
+
+    </changeSet>
+
+</databaseChangeLog>

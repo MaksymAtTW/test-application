@@ -1,0 +1,31 @@
+# Tested with docker-compose version 1.7.0, build 0d7bf73
+version: '2'
+
+services:
+  metadata:
+    build: UserDb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=$UWHIZ_DB_ROOT_PASS
+      - MYSQL_DATABASE=users
+      - MYSQL_USER=$UWHIZ_DB_USER 
+      - MYSQL_PASSWORD=$UWHIZ_DB_PASS
+    volumes_from: 
+     - userdbvolume
+    volumes:
+      - ./database/conf:/etc/mysql/conf.d:ro
+    command: ["mysqld"]
+
+  userdbvolume:
+    build: UserDbVolume
+
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 10.66.38.0/24
+        gateway: 10.66.38.1

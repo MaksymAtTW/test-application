@@ -1,0 +1,6 @@
+rootProject.name = 'TestAplication'
+
+include 'PhotoService'
+include 'UserService'
+include 'AuthService'
+
